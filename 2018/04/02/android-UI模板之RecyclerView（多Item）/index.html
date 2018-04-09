@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="">
-  <title>相册 | 夏朋的博客</title>
+  <title>android UI模板之RecyclerView（多Item） | 夏朋的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="走过的足迹      (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($script)       $script">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="/photos/index.html">
+  <meta name="description" content="很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。你一定对下面界面很熟悉，这是微信“发现”界面的一部分">
+<meta name="keywords" content="UI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android UI模板之RecyclerView（多Item）">
+<meta property="og:url" content="/2018/04/02/android-UI模板之RecyclerView（多Item）/index.html">
 <meta property="og:site_name" content="夏朋的博客">
-<meta property="og:description" content="走过的足迹      (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($script)       $script">
-<meta property="og:updated_time" content="2018-03-03T17:35:05.128Z">
+<meta property="og:description" content="很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。你一定对下面界面很熟悉，这是微信“发现”界面的一部分">
+<meta property="og:image" content="/assets/img/rc1.png">
+<meta property="og:image" content="/assets/img/rc2.png">
+<meta property="og:updated_time" content="2018-04-09T10:32:50.650Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="走过的足迹      (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($script)       $script">
+<meta name="twitter:title" content="android UI模板之RecyclerView（多Item）">
+<meta name="twitter:description" content="很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。你一定对下面界面很熟悉，这是微信“发现”界面的一部分">
+<meta name="twitter:image" content="/assets/img/rc1.png">
   
     <link rel="alternative" href="/atom.xml" title="夏朋的博客" type="application/atom+xml">
   
@@ -155,39 +159,144 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-photos" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-android-UI模板之RecyclerView（多Item）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      android UI模板之RecyclerView（多Item）
     </h1>
   
 
+        
+        <a href="/2018/04/02/android-UI模板之RecyclerView（多Item）/" class="archive-article-date">
+  	<time datetime="2018-04-02T02:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
+</a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" href="./ins.css">
-<div class="photos-btn-wrap">
-	<a class="photos-btn active" href="javascript:void(0)" target="_blank" rel="noopener">走过的足迹</a>
-</div>
+        <p>很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。<br>下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。<br>你一定对下面界面很熟悉，这是微信“发现”界面的一部分<br><img src="/assets/img/rc1.png" width="25%" height="25%"><br><a id="more"></a></p>
+<p>下面我会介绍如何构建类似的界面。<br>首先，编写两种不同的Item，空白Item和内容Item<br>空白Item</p>
+<pre><code>&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;wrap_content&quot;&gt;
+&lt;TextView
+    android:id=&quot;@+id/textView&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot; /&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>内容Item</p>
+<pre><code>&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+android:orientation=&quot;horizontal&quot;
+android:background=&quot;@android:color/white&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;wrap_content&quot;&gt;
+&lt;ImageView
+    android:id=&quot;@+id/imageView&quot;
+    android:layout_width=&quot;40dp&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_marginLeft=&quot;10dp&quot;
+    android:layout_marginTop=&quot;10dp&quot;
+    android:layout_marginBottom=&quot;10dp&quot;
+    app:srcCompat=&quot;@android:drawable/ic_lock_lock&quot; /&gt;
+&lt;TextView
+    android:id=&quot;@+id/list_item&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:text=&quot;hshs&quot;
+    android:layout_marginLeft=&quot;10dp&quot;
+    android:layout_marginTop=&quot;10dp&quot;
+    android:layout_marginBottom=&quot;10dp&quot;
+    android:textAppearance=&quot;@style/TextAppearance.AppCompat.Large&quot; /&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>这两种Item用于显示不同的内容</p>
+<p>RecyclerVeiw布局如下</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;match_parent&quot;
+android:background=&quot;@color/item_backgound&quot;
+tools:context=&quot;com.xiapeng.testwidget.MainActivity&quot;&gt;
 
-<script>
-  (function() {
-    var loadScript = function(path) {
-      var $script = document.createElement('script')
-      document.getElementsByTagName('body')[0].appendChild($script)
-      $script.setAttribute('src', path)
+&lt;android.support.v7.widget.RecyclerView
+    android:id=&quot;@+id/recyclerview&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot; /&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>界面编写完成后，我们来看代码如何实现。主要是RecyclerView的Adapter实现，在原有基础上添加一个新的继承getItemViewType，用于判断显示Item的类型,然后分别实现两种Item，代码如下</p>
+<pre><code>package com.xiapeng.testwidget
+import android.content.Context
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import kotlinx.android.synthetic.main.item_oneline.view.*
+
+
+class MyRecyclerviewAdapter(context:Context,list:List&lt;String&gt;):RecyclerView.Adapter&lt;RecyclerView.ViewHolder&gt;(){
+val VIEW_EMPTY = 1
+val VIEW_ITEM = 2
+val myContext=context
+val myList=list
+
+override fun getItemCount(): Int {
+    return myList.size
+}
+
+override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    if(holder is ItemViewHolder) {
+        holder!!.itemView.list_item.text=myList[position]
     }
-    setTimeout(function() {
-      loadScript('./ins.js')
-    }, 0)
-  })()
-</script>
+}
+
+override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
+    var view: View
+    if (viewType == VIEW_EMPTY) {
+        view = LayoutInflater.from(myContext).inflate(R.layout.item_blank, parent, false)
+        return EmptyViewHolder(view)
+    } else{
+        view=LayoutInflater.from(myContext).inflate(R.layout.item_oneline,parent,false)
+        return ItemViewHolder(view)
+    }
+}
+
+override fun getItemViewType(position: Int): Int {
+    if(position==0||position==2||position==5||position==8||position==11||position==14||position==16){
+        return VIEW_EMPTY
+    }else{
+        return VIEW_ITEM
+    }
+}
+
+class EmptyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+}
+
+class ItemViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+    var listitem:TextView
+
+    init {
+        listitem=itemView.findViewById&lt;TextView&gt;(R.id.list_item)
+    }
+}
+}
+</code></pre><p>实现代码如下</p>
+<pre><code> val layoutManager= LinearLayoutManager(this)
+layoutManager.orientation= LinearLayoutManager.VERTICAL
+recyclerview.layoutManager=layoutManager
+recyclerview.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
+var list= listOf&lt;String&gt;(&quot;&quot;,&quot;朋友圈&quot;,&quot;&quot;,&quot;扫一扫&quot;,&quot;摇一摇&quot;,&quot;&quot;,&quot;看一看&quot;,&quot;搜一搜&quot;,
+        &quot;&quot;,&quot;附近的人&quot;,&quot;漂流瓶&quot;,&quot;&quot;,&quot;购物&quot;,&quot;游戏&quot;,&quot;&quot;,&quot;小程序&quot;,&quot;&quot;)
+recyclerview.adapter=MyRecyclerviewAdapter(this,list)
+</code></pre><p>界面的效果图如下<br><img src="/assets/img/rc2.png" width="25%" height="25%"></p>
+<p>相关代码可以到我的github中下载,地址是<a href="https://github.com/xiaopengtongxue" target="_blank" rel="noopener">https://github.com/xiaopengtongxue</a></p>
 
       
 
@@ -217,6 +326,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -267,7 +387,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http:/photos/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http:/2018/04/02/android-UI模板之RecyclerView（多Item）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,6 +399,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/01/android中Matcher关于正则表达式的一些技巧/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">android中Matcher关于正则表达式的一些技巧</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -297,6 +427,16 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -319,7 +459,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
