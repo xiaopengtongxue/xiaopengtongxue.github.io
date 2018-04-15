@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="">
-  <title>相册 | 夏朋的博客</title>
+  <title>android UI模板之RecyclerView（多Item 二） | 夏朋的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="走过的足迹      (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($script)       $script">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="/photos/index.html">
+  <meta name="description" content="很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。你一定对下面界面很熟悉，这是UC头条界面的一部分">
+<meta name="keywords" content="UI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android UI模板之RecyclerView（多Item 二）">
+<meta property="og:url" content="/2018/04/15/android-UI模板之RecyclerView（多Item 二）/index.html">
 <meta property="og:site_name" content="夏朋的博客">
-<meta property="og:description" content="走过的足迹      (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($script)       $script">
-<meta property="og:updated_time" content="2018-03-03T17:35:05.128Z">
+<meta property="og:description" content="很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。你一定对下面界面很熟悉，这是UC头条界面的一部分">
+<meta property="og:image" content="/assets/img/rc3.png">
+<meta property="og:image" content="/assets/img/rc4.png">
+<meta property="og:updated_time" content="2018-04-14T16:17:19.314Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="走过的足迹      (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($script)       $script">
+<meta name="twitter:title" content="android UI模板之RecyclerView（多Item 二）">
+<meta name="twitter:description" content="很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。你一定对下面界面很熟悉，这是UC头条界面的一部分">
+<meta name="twitter:image" content="/assets/img/rc3.png">
   
     <link rel="alternative" href="/atom.xml" title="夏朋的博客" type="application/atom+xml">
   
@@ -155,39 +159,387 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-photos" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-android-UI模板之RecyclerView（多Item 二）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      android UI模板之RecyclerView（多Item 二）
     </h1>
   
 
+        
+        <a href="/2018/04/15/android-UI模板之RecyclerView（多Item 二）/" class="archive-article-date">
+  	<time datetime="2018-04-15T02:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
+</a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" href="./ins.css">
-<div class="photos-btn-wrap">
-	<a class="photos-btn active" href="javascript:void(0)" target="_blank" rel="noopener">走过的足迹</a>
-</div>
+        <p>很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。<br>下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。<br>你一定对下面界面很熟悉，这是UC头条界面的一部分<br><img src="/assets/img/rc3.png" width="25%" height="25%"><br><a id="more"></a></p>
+<p>下面我会介绍如何构建类似的界面。<br>首先，界面中有四种不同的Item，分别为无图Item，一张图Item，多张图Item和视频Item<br>无图Item，单纯显示标题，来源和评论次数，使用线性布局安排整体</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:orientation=&quot;vertical&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;wrap_content&quot;&gt;
 
-<script>
-  (function() {
-    var loadScript = function(path) {
-      var $script = document.createElement('script')
-      document.getElementsByTagName('body')[0].appendChild($script)
-      $script.setAttribute('src', path)
+&lt;TextView
+    android:id=&quot;@+id/item_title&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:text=&quot;title&quot;
+    android:layout_marginTop=&quot;5dp&quot;
+    android:layout_marginBottom=&quot;10dp&quot;
+    android:textAppearance=&quot;@style/TextAppearance.AppCompat.Large&quot; /&gt;
+
+&lt;RelativeLayout
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_marginBottom=&quot;5dp&quot;
+    android:orientation=&quot;horizontal&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/src&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignParentLeft=&quot;true&quot;
+        android:text=&quot;光明网&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/item_comment&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignParentTop=&quot;true&quot;
+        android:layout_toEndOf=&quot;@+id/src&quot;
+        android:layout_marginLeft=&quot;20dp&quot;
+        android:text=&quot;91评&quot; /&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/item_delete&quot;
+        android:layout_width=&quot;20dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignParentRight=&quot;true&quot;
+        android:layout_alignBottom=&quot;@+id/src&quot;
+        android:src=&quot;@mipmap/item_delete&quot;/&gt;
+&lt;/RelativeLayout&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>一张图Item，在无图布局的基础，垂直改为水平，上添加ImageView控件</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:orientation=&quot;horizontal&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;wrap_content&quot;&gt;
+
+&lt;LinearLayout
+    android:layout_width=&quot;230dp&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_alignParentStart=&quot;true&quot;
+    android:layout_alignParentTop=&quot;true&quot;
+    android:orientation=&quot;vertical&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/item_title&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginBottom=&quot;10dp&quot;
+        android:layout_marginTop=&quot;5dp&quot;
+        android:text=&quot;title&quot;
+        android:textAppearance=&quot;@style/TextAppearance.AppCompat.Large&quot; /&gt;
+
+    &lt;RelativeLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginBottom=&quot;5dp&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/src&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_alignParentLeft=&quot;true&quot;
+            android:text=&quot;光明网&quot; /&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/item_comment&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_alignParentTop=&quot;true&quot;
+            android:layout_marginLeft=&quot;20dp&quot;
+            android:layout_toEndOf=&quot;@+id/src&quot;
+            android:text=&quot;91评&quot; /&gt;
+
+        &lt;ImageView
+            android:id=&quot;@+id/item_delete&quot;
+            android:layout_width=&quot;20dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_alignBottom=&quot;@+id/src&quot;
+            android:layout_alignParentEnd=&quot;true&quot;
+            android:src=&quot;@mipmap/item_delete&quot; /&gt;
+    &lt;/RelativeLayout&gt;
+
+&lt;/LinearLayout&gt;
+
+&lt;ImageView
+    android:id=&quot;@+id/item_one_image&quot;
+    android:layout_width=&quot;150dp&quot;
+    android:layout_height=&quot;100dp&quot;
+    android:layout_alignParentRight=&quot;true&quot;
+    android:layout_marginTop=&quot;10dp&quot;
+    android:layout_marginBottom=&quot;5dp&quot;
+    android:src=&quot;@mipmap/picture3&quot;/&gt;
+&lt;/RelativeLayout&gt;
+</code></pre><p>多张图Item，同样在无图基础上添加三个ImageView控件</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:orientation=&quot;vertical&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;wrap_content&quot;&gt;
+
+&lt;TextView
+    android:id=&quot;@+id/item_title&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:text=&quot;title&quot;
+    android:layout_marginTop=&quot;5dp&quot;
+    android:layout_marginBottom=&quot;10dp&quot;
+    android:textAppearance=&quot;@style/TextAppearance.AppCompat.Large&quot; /&gt;
+
+&lt;LinearLayout
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;100dp&quot;
+    android:layout_marginBottom=&quot;5dp&quot;&gt;
+    &lt;ImageView
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:layout_margin=&quot;1dp&quot;
+        android:src=&quot;@mipmap/girl4&quot;
+        android:layout_weight=&quot;1&quot;/&gt;
+    &lt;ImageView
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:src=&quot;@mipmap/girl2&quot;
+        android:layout_weight=&quot;1&quot;/&gt;
+    &lt;ImageView
+        android:layout_width=&quot;0dp&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:layout_margin=&quot;1dp&quot;
+        android:src=&quot;@mipmap/girl6&quot;
+        android:layout_weight=&quot;1&quot;/&gt;
+&lt;/LinearLayout&gt;
+
+&lt;RelativeLayout
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_marginBottom=&quot;5dp&quot;
+    android:orientation=&quot;horizontal&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/src&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignParentLeft=&quot;true&quot;
+        android:text=&quot;光明网&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/item_comment&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignParentTop=&quot;true&quot;
+        android:layout_toEndOf=&quot;@+id/src&quot;
+        android:layout_marginLeft=&quot;20dp&quot;
+        android:text=&quot;91评&quot; /&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/item_delete&quot;
+        android:layout_width=&quot;20dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignParentRight=&quot;true&quot;
+        android:layout_alignBottom=&quot;@+id/src&quot;
+        android:src=&quot;@mipmap/item_delete&quot;/&gt;
+&lt;/RelativeLayout&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>视频Item，和一张图Item类似</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:orientation=&quot;vertical&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;wrap_content&quot;&gt;
+
+&lt;TextView
+    android:id=&quot;@+id/item_title&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:text=&quot;title&quot;
+    android:layout_marginTop=&quot;5dp&quot;
+    android:layout_marginBottom=&quot;10dp&quot;
+    android:textAppearance=&quot;@style/TextAppearance.AppCompat.Large&quot; /&gt;
+
+&lt;ImageView
+    android:id=&quot;@+id/item_video&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;230dp&quot;
+    android:layout_marginBottom=&quot;5dp&quot;
+    android:src=&quot;@mipmap/video2&quot;/&gt;
+
+&lt;RelativeLayout
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_marginBottom=&quot;5dp&quot;
+    android:orientation=&quot;horizontal&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/src&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignParentLeft=&quot;true&quot;
+        android:text=&quot;光明网&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/item_comment&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignParentTop=&quot;true&quot;
+        android:layout_toEndOf=&quot;@+id/src&quot;
+        android:layout_marginLeft=&quot;20dp&quot;
+        android:text=&quot;91评&quot; /&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/item_delete&quot;
+        android:layout_width=&quot;20dp&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignParentRight=&quot;true&quot;
+        android:layout_alignBottom=&quot;@+id/src&quot;
+        android:src=&quot;@mipmap/item_delete&quot;/&gt;
+&lt;/RelativeLayout&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>RecyclerVeiw布局如下</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;match_parent&quot;
+tools:context=&quot;com.xiapeng.testwidget.MainActivity&quot;&gt;
+
+&lt;android.support.v7.widget.RecyclerView
+    android:id=&quot;@+id/recyclerview&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot; /&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>界面编写完成后，我们来看代码如何实现。主要是RecyclerView的Adapter实现，在原有基础上添加一个新的继承getItemViewType，用于判断显示Item的类型,然后分别实现四种Item，代码如下</p>
+<pre><code>import android.content.Context
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import kotlinx.android.synthetic.main.item_video.view.*
+
+class MyRecyclerviewAdapter(context:Context,list:MutableList&lt;Map&lt;String,String&gt;&gt;):RecyclerView.Adapter&lt;RecyclerView.ViewHolder&gt;(){
+val VIEW_NO_PICTURE = 1
+val VIEW_VIDEO = 2
+val VIEW_ONE_PICTURE = 3
+val VIEW_MORE_PICTURE = 4
+val myContext=context
+val myList=list
+
+override fun getItemCount(): Int {
+    return myList.size
+}
+
+override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    if(holder is OnePictureViewHolder) {
+        holder!!.itemView.item_title.text=myList[position].get(&quot;item_title&quot;)
+    }else if (holder is MorePictureViewHolder){
+        holder!!.itemView.item_title.text=myList[position].get(&quot;item_title&quot;)
+    }else if (holder is VideoViewHolder){
+        holder!!.itemView.item_title.text=myList[position].get(&quot;item_title&quot;)
+    }else if (holder is NoPictureViewHolder){
+        holder!!.itemView.item_title.text=myList[position].get(&quot;item_title&quot;)
     }
-    setTimeout(function() {
-      loadScript('./ins.js')
-    }, 0)
-  })()
-</script>
+}
+
+override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
+    var view: View
+    if (viewType == VIEW_VIDEO) {
+        view = LayoutInflater.from(myContext).inflate(R.layout.item_video, parent, false)
+        return VideoViewHolder(view)
+    } else if (viewType == VIEW_ONE_PICTURE){
+        view=LayoutInflater.from(myContext).inflate(R.layout.item_one_picture,parent,false)
+        return OnePictureViewHolder(view)
+    } else if (viewType == VIEW_MORE_PICTURE){
+        view=LayoutInflater.from(myContext).inflate(R.layout.item_more_picture,parent,false)
+        return MorePictureViewHolder(view)
+    } else {
+        view=LayoutInflater.from(myContext).inflate(R.layout.item_no_picture,parent,false)
+        return NoPictureViewHolder(view)
+    }
+}
+
+override fun getItemViewType(position: Int): Int {
+    val item = myList.get(position).getValue(&quot;type&quot;)
+
+    if (item.equals(&quot;video&quot;)) {
+        return VIEW_VIDEO
+    } else if (item.equals(&quot;onePicture&quot;)) {
+        return VIEW_ONE_PICTURE
+    } else if (item.equals(&quot;morePicture&quot;)) {
+        return VIEW_MORE_PICTURE
+    }else  {
+        return VIEW_NO_PICTURE
+    }
+}
+
+
+
+class NoPictureViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+}
+
+class OnePictureViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+}
+
+class MorePictureViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+}
+
+class VideoViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+}
+}
+</code></pre><p>实现代码如下</p>
+<pre><code> val layoutManager= LinearLayoutManager(this)
+layoutManager.orientation= LinearLayoutManager.VERTICAL
+recyclerview.layoutManager=layoutManager
+recyclerview.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
+var list:MutableList&lt;Map&lt;String,String&gt;&gt; = mutableListOf()
+var map=HashMap&lt;String,String&gt;()
+map.put(&quot;type&quot;,&quot;video&quot;)
+map.put(&quot;item_title&quot;,&quot;公路事故时，如果规定责任&quot;)
+list.add(map)
+map=HashMap&lt;String,String&gt;()
+map.put(&quot;type&quot;,&quot;onePicture&quot;)
+map.put(&quot;item_title&quot;,&quot;老公出轨，你好如何处理&quot;)
+list.add(map)
+map=HashMap&lt;String,String&gt;()
+map.put(&quot;type&quot;,&quot;morePicture&quot;)
+map.put(&quot;item_title&quot;,&quot;脱单秘籍&quot;)
+list.add(map)
+map=HashMap&lt;String,String&gt;()
+map.put(&quot;type&quot;,&quot;noPicture&quot;)
+map.put(&quot;item_title&quot;,&quot;第三次世界大战即将爆发&quot;)
+list.add(map)
+map=HashMap&lt;String,String&gt;()
+map.put(&quot;type&quot;,&quot;video&quot;)
+map.put(&quot;item_title&quot;,&quot;谁说最后的凶手&quot;)
+list.add(map)
+map=HashMap&lt;String,String&gt;()
+map.put(&quot;type&quot;,&quot;morePicture&quot;)
+map.put(&quot;item_title&quot;,&quot;不能说的秘密，女性美容&quot;)
+list.add(map)
+recyclerview.adapter=MyRecyclerviewAdapter(this,list)
+</code></pre><p>界面的效果图如下<br><img src="/assets/img/rc4.png" width="25%" height="25%"></p>
+<p>相关代码可以到我的github中下载,地址是<a href="https://github.com/xiaopengtongxue" target="_blank" rel="noopener">https://github.com/xiaopengtongxue</a></p>
 
       
 
@@ -217,6 +569,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -267,7 +630,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http:/photos/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http:/2018/04/15/android-UI模板之RecyclerView（多Item 二）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,6 +642,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2018/04/15/android-UI模板之RecyclerView/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          android UI模板之RecyclerView
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/02/android-UI模板之RecyclerView（多Item）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">android UI模板之RecyclerView（多Item）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -297,6 +679,16 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -319,7 +711,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="">
-  <title>相册 | 夏朋的博客</title>
+  <title>android UI模板之RecyclerView | 夏朋的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="走过的足迹      (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($script)       $script">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="/photos/index.html">
+  <meta name="description" content="很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。你一定对下面界面很熟悉，这是微信“订阅号”界面的一部分">
+<meta name="keywords" content="UI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android UI模板之RecyclerView">
+<meta property="og:url" content="/2018/04/15/android-UI模板之RecyclerView/index.html">
 <meta property="og:site_name" content="夏朋的博客">
-<meta property="og:description" content="走过的足迹      (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($script)       $script">
-<meta property="og:updated_time" content="2018-03-03T17:35:05.128Z">
+<meta property="og:description" content="很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。你一定对下面界面很熟悉，这是微信“订阅号”界面的一部分">
+<meta property="og:image" content="/assets/img/rc5.png">
+<meta property="og:image" content="/assets/img/rc6.png">
+<meta property="og:updated_time" content="2018-04-15T14:55:34.148Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="走过的足迹      (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($script)       $script">
+<meta name="twitter:title" content="android UI模板之RecyclerView">
+<meta name="twitter:description" content="很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。你一定对下面界面很熟悉，这是微信“订阅号”界面的一部分">
+<meta name="twitter:image" content="/assets/img/rc5.png">
   
     <link rel="alternative" href="/atom.xml" title="夏朋的博客" type="application/atom+xml">
   
@@ -155,39 +159,168 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-photos" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-android-UI模板之RecyclerView" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      android UI模板之RecyclerView
     </h1>
   
 
+        
+        <a href="/2018/04/15/android-UI模板之RecyclerView/" class="archive-article-date">
+  	<time datetime="2018-04-15T14:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
+</a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <link rel="stylesheet" href="./ins.css">
-<div class="photos-btn-wrap">
-	<a class="photos-btn active" href="javascript:void(0)" target="_blank" rel="noopener">走过的足迹</a>
-</div>
+        <p>很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。<br>下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。<br>你一定对下面界面很熟悉，这是微信“订阅号”界面的一部分<br><img src="/assets/img/rc5.png" width="25%" height="25%"><br><a id="more"></a></p>
+<p>下面我会介绍如何构建类似的界面。<br>首先，观察界面结构，编写出item界面，如下：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;wrap_content&quot;
+android:orientation=&quot;horizontal&quot;&gt;
 
-<script>
-  (function() {
-    var loadScript = function(path) {
-      var $script = document.createElement('script')
-      document.getElementsByTagName('body')[0].appendChild($script)
-      $script.setAttribute('src', path)
+&lt;ImageView
+    android:layout_width=&quot;60dp&quot;
+    android:layout_height=&quot;60dp&quot;
+    android:layout_marginTop=&quot;10dp&quot;
+    android:layout_marginBottom=&quot;10dp&quot;
+    android:src=&quot;@mipmap/picture2&quot;/&gt;
+
+&lt;RelativeLayout
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:layout_marginTop=&quot;15dp&quot;
+    android:layout_marginBottom=&quot;15dp&quot;
+    android:layout_marginLeft=&quot;15dp&quot;
+    android:layout_marginRight=&quot;5dp&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/item_name&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;利空&quot;
+        android:textAppearance=&quot;@style/TextAppearance.AppCompat.Large&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/item_message&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignLeft=&quot;@+id/item_name&quot;
+        android:layout_below=&quot;@+id/item_name&quot;
+        android:text=&quot;不见不散&quot; /&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/item_time&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_alignParentRight=&quot;true&quot;
+        android:text=&quot;昨天&quot; /&gt;
+&lt;/RelativeLayout&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><p>RecyclerVeiw布局如下</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;match_parent&quot;
+android:background=&quot;@color/item_backgound&quot;
+tools:context=&quot;com.xiapeng.testwidget.MainActivity&quot;&gt;
+
+&lt;android.support.v7.widget.RecyclerView
+    android:id=&quot;@+id/recyclerview&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot; /&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>界面编写完成后，我们来看代码如何实现。主要是RecyclerView的Adapter实现，对position处的item进行赋值，代码如下</p>
+<pre><code>import android.content.Context
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+
+class MyRecyclerviewAdapter(context:Context,list:MutableList&lt;Map&lt;String,String&gt;&gt;):RecyclerView.Adapter&lt;MyRecyclerviewAdapter.CardViewHolder&gt;(){
+val myContext=context
+val myList=list
+
+override fun getItemCount(): Int {
+    return myList.size
+}
+
+override fun onBindViewHolder(holder: CardViewHolder?, position: Int) {
+    holder!!.itemTitle.text=myList[position].get(&quot;item_title&quot;)
+    var message=myList[position].get(&quot;item_message&quot;)
+    if(message!!.length&gt;19)
+        message=message!!.substring(0,18)+&quot;...&quot;
+    holder!!.itemMessage.text=message
+    holder!!.itemTime.text=myList[position].get(&quot;item_time&quot;)
+}
+
+override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CardViewHolder {
+    var view=LayoutInflater.from(myContext).inflate(R.layout.item_card, parent, false)
+    return CardViewHolder(view)
+}
+
+class CardViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+    var itemTitle:TextView
+    var itemMessage:TextView
+    var itemTime:TextView
+    init {
+        itemTitle=itemView.findViewById(R.id.item_name)
+        itemMessage=itemView.findViewById(R.id.item_message)
+        itemTime=itemView.findViewById(R.id.item_time)
     }
-    setTimeout(function() {
-      loadScript('./ins.js')
-    }, 0)
-  })()
-</script>
+}
+}
+</code></pre><p>Activity处代码如下</p>
+<pre><code> val layoutManager= LinearLayoutManager(this)
+layoutManager.orientation= LinearLayoutManager.VERTICAL
+recyclerview.layoutManager=layoutManager
+recyclerview.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
+var list:MutableList&lt;Map&lt;String,String&gt;&gt; = mutableListOf()
+var map=HashMap&lt;String,String&gt;()
+map.put(&quot;item_message&quot;,&quot;苏宁易购Android架构演进史&quot;)
+map.put(&quot;item_title&quot;,&quot;前端之巅&quot;)
+map.put(&quot;item_time&quot;,&quot;21:59&quot;)
+list.add(map)
+map=HashMap&lt;String,String&gt;()
+map.put(&quot;item_message&quot;,&quot;你还敢熬夜吗？研究首次证实：熬夜提高早死风险&quot;)
+map.put(&quot;item_title&quot;,&quot;企鹅科学&quot;)
+map.put(&quot;item_time&quot;,&quot;18:31&quot;)
+list.add(map)
+map=HashMap&lt;String,String&gt;()
+map.put(&quot;item_message&quot;,&quot;2017金融科技安全分析报告&quot;)
+map.put(&quot;item_title&quot;,&quot;FreeBuf&quot;)
+map.put(&quot;item_time&quot;,&quot;18:07&quot;)
+list.add(map)
+map=HashMap&lt;String,String&gt;()
+map.put(&quot;item_message&quot;,&quot;全球大型电商测试基础框架设计概览&quot;)
+map.put(&quot;item_title&quot;,&quot;infoQ&quot;)
+map.put(&quot;item_time&quot;,&quot;09:40&quot;)
+list.add(map)
+map=HashMap&lt;String,String&gt;()
+map.put(&quot;item_message&quot;,&quot;TensorFlow中文社区论坛(测试版)上线&quot;)
+map.put(&quot;item_title&quot;,&quot;谷歌开发者&quot;)
+map.put(&quot;item_time&quot;,&quot;周五&quot;)
+list.add(map)
+map=HashMap&lt;String,String&gt;()
+map.put(&quot;item_message&quot;,&quot;他比乔布斯还牛，做完这位神的访谈就跟大家说再见&quot;)
+map.put(&quot;item_title&quot;,&quot;图灵访谈&quot;)
+map.put(&quot;item_time&quot;,&quot;4月1日&quot;)
+list.add(map)
+recyclerview.adapter=MyRecyclerviewAdapter(this,list)
+</code></pre><p>界面的效果图如下<br><img src="/assets/img/rc6.png" width="25%" height="25%"></p>
+<p>相关代码可以到我的github中下载,地址是<a href="https://github.com/xiaopengtongxue" target="_blank" rel="noopener">https://github.com/xiaopengtongxue</a></p>
 
       
 
@@ -217,6 +350,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -267,7 +411,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http:/photos/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http:/2018/04/15/android-UI模板之RecyclerView/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,6 +423,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/15/android-UI模板之RecyclerView（多Item 二）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">android UI模板之RecyclerView（多Item 二）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -297,6 +451,16 @@
 </aside>
 
 
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -319,7 +483,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
