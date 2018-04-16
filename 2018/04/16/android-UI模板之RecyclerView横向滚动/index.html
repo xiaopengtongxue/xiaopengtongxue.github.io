@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="">
-  <title>夏朋的博客</title>
+  <title>android UI模板之RecyclerView横向滚动 | 夏朋的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="夏朋的博客">
-<meta property="og:url" content="/index.html">
+  <meta name="description" content="很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。你一定对下面界面很熟悉，这是QQ动态-日迹界面的一部分">
+<meta name="keywords" content="UI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android UI模板之RecyclerView横向滚动">
+<meta property="og:url" content="/2018/04/16/android-UI模板之RecyclerView横向滚动/index.html">
 <meta property="og:site_name" content="夏朋的博客">
+<meta property="og:description" content="很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。你一定对下面界面很熟悉，这是QQ动态-日迹界面的一部分">
+<meta property="og:image" content="/assets/img/rc7.png">
+<meta property="og:image" content="/assets/img/rc8.png">
+<meta property="og:updated_time" content="2018-04-16T14:52:33.505Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="夏朋的博客">
+<meta name="twitter:title" content="android UI模板之RecyclerView横向滚动">
+<meta name="twitter:description" content="很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。你一定对下面界面很熟悉，这是QQ动态-日迹界面的一部分">
+<meta name="twitter:image" content="/assets/img/rc7.png">
   
     <link rel="alternative" href="/atom.xml" title="夏朋的博客" type="application/atom+xml">
   
@@ -151,16 +159,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-android-UI模板之RecyclerView横向滚动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-android-UI模板之RecyclerView横向滚动" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/16/android-UI模板之RecyclerView横向滚动/">android UI模板之RecyclerView横向滚动</a>
+    <h1 class="article-title" itemprop="name">
+      android UI模板之RecyclerView横向滚动
     </h1>
   
 
@@ -173,12 +179,161 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。<br>下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。<br>你一定对下面界面很熟悉，这是QQ动态-日迹界面的一部分<br><img src="/assets/img/rc7.png" width="25%" height="25%"><br>
-        
-          <a class="article-more-a" href="/2018/04/16/android-UI模板之RecyclerView横向滚动/#more">more >></a>
-        
+        <p>很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。<br>下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。<br>你一定对下面界面很熟悉，这是QQ动态-日迹界面的一部分<br><img src="/assets/img/rc7.png" width="25%" height="25%"><br><a id="more"></a></p>
+<p>下面我会介绍如何构建类似的界面。<br>首先，观察界面结构，编写出横向滑动的列表子项界面，如下：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;wrap_content&quot;
+android:orientation=&quot;vertical&quot;&gt;
+&lt;LinearLayout
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_marginTop=&quot;10dp&quot;
+    android:orientation=&quot;horizontal&quot;&gt;
+    &lt;ImageView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:src=&quot;@mipmap/vatar&quot;/&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/item_horizon&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_marginLeft=&quot;10dp&quot;
+        android:layout_marginTop=&quot;5dp&quot;
+        android:text=&quot;QQ日迹&quot;
+        android:textAppearance=&quot;@style/TextAppearance.AppCompat.Medium&quot; /&gt;
+&lt;/LinearLayout&gt;
+
+&lt;HorizontalScrollView
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_marginTop=&quot;10dp&quot;
+    android:layout_marginBottom=&quot;20dp&quot;&gt;
+    &lt;LinearLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;&gt;
+        &lt;ImageView
+            android:layout_width=&quot;100dp&quot;
+            android:layout_height=&quot;170dp&quot;
+            android:layout_margin=&quot;1dp&quot;
+            android:src=&quot;@mipmap/goodgirl&quot;/&gt;
+        &lt;ImageView
+            android:layout_width=&quot;100dp&quot;
+            android:layout_height=&quot;170dp&quot;
+            android:layout_margin=&quot;1dp&quot;
+            android:src=&quot;@mipmap/goodgirl2&quot;/&gt;
+
+        &lt;ImageView
+            android:layout_width=&quot;100dp&quot;
+            android:layout_height=&quot;170dp&quot;
+            android:layout_margin=&quot;1dp&quot;
+            android:src=&quot;@mipmap/goodgirl3&quot; /&gt;
+        &lt;ImageView
+            android:layout_width=&quot;100dp&quot;
+            android:layout_height=&quot;170dp&quot;
+            android:layout_margin=&quot;1dp&quot;
+            android:src=&quot;@mipmap/goodgirl4&quot;/&gt;
+        &lt;ImageView
+            android:layout_width=&quot;100dp&quot;
+            android:layout_height=&quot;170dp&quot;
+            android:layout_margin=&quot;1dp&quot;
+            android:src=&quot;@mipmap/goodgirl5&quot;/&gt;
+        &lt;ImageView
+            android:layout_width=&quot;100dp&quot;
+            android:layout_height=&quot;170dp&quot;
+            android:layout_margin=&quot;1dp&quot;
+            android:src=&quot;@mipmap/goodgirl6&quot;/&gt;
+    &lt;/LinearLayout&gt;
+&lt;/HorizontalScrollView&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>RecyclerVeiw布局如下</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;match_parent&quot;
+android:background=&quot;@color/item_backgound&quot;
+tools:context=&quot;com.xiapeng.testwidget.MainActivity&quot;&gt;
+
+&lt;android.support.v7.widget.RecyclerView
+    android:id=&quot;@+id/recyclerview&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot; /&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>界面编写完成后，我们来看代码如何实现。主要是RecyclerView的Adapter实现，对position处的item进行赋值，代码如下</p>
+<pre><code>import android.content.Context
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+
+class MyRecyclerviewAdapter(context:Context,list:ArrayList&lt;String&gt;):RecyclerView.Adapter&lt;MyRecyclerviewAdapter.HorizonScrollViewHolder&gt;(){
+val myContext=context
+val myList=list
+
+override fun getItemCount(): Int {
+    return myList.size
+}
+
+override fun onBindViewHolder(holder: HorizonScrollViewHolder?, position: Int) {
+    holder!!.itemTitle.text=myList[position]
+}
+
+override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): HorizonScrollViewHolder {
+    var view=LayoutInflater.from(myContext).inflate(R.layout.item_horizon_list, parent, false)
+    return HorizonScrollViewHolder(view)
+}
+
+class HorizonScrollViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+    var itemTitle:TextView
+    init {
+        itemTitle=itemView.findViewById(R.id.item_horizon)
+    }
+}
+}
+</code></pre><p>Activity处代码如下</p>
+<pre><code> val layoutManager= LinearLayoutManager(this)
+layoutManager.orientation= LinearLayoutManager.VERTICAL
+recyclerview.layoutManager=layoutManager
+recyclerview.addItemDecoration(DividerItemDecoration(this,LinearLayoutManager.VERTICAL))
+var list = ArrayList&lt;String&gt;()
+list.add(&quot;男神俱乐部&quot;)
+list.add(&quot;女神俱乐部&quot;)
+list.add(&quot;拳头帮&quot;)
+list.add(&quot;人人乐&quot;)
+list.add(&quot;萌娃大本营&quot;)
+list.add(&quot;运动快乐&quot;)
+recyclerview.adapter=MyRecyclerviewAdapter(this,list)
+</code></pre><p>界面的效果图如下<br><img src="/assets/img/rc8.png" width="25%" height="25%"></p>
+<p>相关代码可以到我的github中下载,地址是<a href="https://github.com/xiaopengtongxue" target="_blank" rel="noopener">https://github.com/xiaopengtongxue</a></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -198,16 +353,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/16/android-UI模板之RecyclerView横向滚动/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http:/2018/04/16/android-UI模板之RecyclerView横向滚动/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/15/android-UI模板之RecyclerView/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">android UI模板之RecyclerView</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -227,623 +441,14 @@
 
 
 
-
   
-    <article id="post-android-UI模板之RecyclerView" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/15/android-UI模板之RecyclerView/">android UI模板之RecyclerView</a>
-    </h1>
   
 
-        
-        <a href="/2018/04/15/android-UI模板之RecyclerView/" class="archive-article-date">
-  	<time datetime="2018-04-15T14:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。<br>下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。<br>你一定对下面界面很熟悉，这是微信“订阅号”界面的一部分<br><img src="/assets/img/rc5.png" width="25%" height="25%"><br>
-        
-          <a class="article-more-a" href="/2018/04/15/android-UI模板之RecyclerView/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/15/android-UI模板之RecyclerView/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-android-UI模板之RecyclerView（多Item 二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/15/android-UI模板之RecyclerView（多Item 二）/">android UI模板之RecyclerView（多Item 二）</a>
-    </h1>
   
 
-        
-        <a href="/2018/04/15/android-UI模板之RecyclerView（多Item 二）/" class="archive-article-date">
-  	<time datetime="2018-04-15T02:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。<br>下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。<br>你一定对下面界面很熟悉，这是UC头条界面的一部分<br><img src="/assets/img/rc3.png" width="25%" height="25%"><br>
-        
-          <a class="article-more-a" href="/2018/04/15/android-UI模板之RecyclerView（多Item 二）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/15/android-UI模板之RecyclerView（多Item 二）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-android-UI模板之RecyclerView（多Item）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/02/android-UI模板之RecyclerView（多Item）/">android UI模板之RecyclerView（多Item）</a>
-    </h1>
   
 
-        
-        <a href="/2018/04/02/android-UI模板之RecyclerView（多Item）/" class="archive-article-date">
-  	<time datetime="2018-04-02T02:47:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>很多时候，我们需要对app进行快速开发。但UI设计时，我们总是找不到合适的界面用于展示app的功能，那多半就是你对UI通用界面的不熟悉。如果是有经验的程序员，他脑海会闪过许多UI界面，对相应的功能进行匹配，然后找到合适的界面进行开发。<br>下面，我将介绍一些常用的界面，这次主要是RecyclerVeiw的应用，希望对你有所帮助。<br>你一定对下面界面很熟悉，这是微信“发现”界面的一部分<br><img src="/assets/img/rc1.png" width="25%" height="25%"><br>
-        
-          <a class="article-more-a" href="/2018/04/02/android-UI模板之RecyclerView（多Item）/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/02/android-UI模板之RecyclerView（多Item）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-android中Matcher关于正则表达式的一些技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/01/android中Matcher关于正则表达式的一些技巧/">android中Matcher关于正则表达式的一些技巧</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/01/android中Matcher关于正则表达式的一些技巧/" class="archive-article-date">
-  	<time datetime="2018-04-01T05:35:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Android中，很多时候我们会用到字符串的匹配，在一大段的字符串中查询特定的字符串，这里就需要一些正则表达式的技巧。一般来说，正则表达式有如下规则：<br>// 反斜杠<br>/t 间隔 (‘/u0009’)<br>/n 换行 (‘/u000A’)<br>/r 回车 (‘/u000D’)<br>/d 数字 等价于[0-9]<br>/D 非数字 等价于[^0-9]<br>/s 空白符号 [/t/n/x0B/f/r]<br>/S 非空白符号 [^/t/n/x0B/f/r]<br>/w 单独字符 [a-zA-Z_0-9]<br>/W 非单独字符 [^a-zA-Z_0-9]<br>/f 换页符<br>/e Escape<br>/b 一个单词的边界<br>/B 一个非单词的边界<br>/G 前一个匹配的结束<br>
-        
-          <a class="article-more-a" href="/2018/04/01/android中Matcher关于正则表达式的一些技巧/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/01/android中Matcher关于正则表达式的一些技巧/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Retrofit的乱码问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/01/Retrofit的乱码问题/">Retrofit乱码问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/04/01/Retrofit的乱码问题/" class="archive-article-date">
-  	<time datetime="2018-04-01T03:20:15.472Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先，使用Retrofit主要有以下步骤： </p>
-<ul>
-<li>步骤1：添加Retrofit库的依赖 </li>
-<li>步骤2：创建 接收服务器返回数据 的类 </li>
-<li>步骤3：创建 用于描述网络请求 的接口 </li>
-<li>步骤4：创建 Retrofit 实例 </li>
-<li>步骤5：创建 网络请求接口实例 并 配置网络请求参数 </li>
-<li>步骤6：发送网络请求（异步 / 同步）</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/04/01/Retrofit的乱码问题/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/01/Retrofit的乱码问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-创建github博客中的一些问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/03/创建github博客中的一些问题/">构建github博客中的一些问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/03/创建github博客中的一些问题/" class="archive-article-date">
-  	<time datetime="2018-03-03T15:45:32.457Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>github上的博客构建我是在自己的win7上进行的，使用的框架主要为hexo+yilia+github,其中hexo为博客系统的代码，yilia为博客的主题，github为博客系统提供空间和运行。主要步骤如下：<br>1.安装git和nodejs<br>2.下载和初始化hexo<br>3.切换主题<br>4.ssh配置<br>5.发布博客</p>
-<p>其中一些常用的命令如下：<br>hexo g #完整命令为hexo generate,生成静态文件<br>hexo s #完整命令为hexo server,启动服务器,本地可以测试<br>hexo d #完整命令为hexo deploy,将本地编译好的静态文件发布到github上<br>hexo n #完整命令为hexo new,新建一篇文章<br>hexo clean #清除当前项目的静态文件<br>
-        
-          <a class="article-more-a" href="/2018/03/03/创建github博客中的一些问题/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">问题</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/03/创建github博客中的一些问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-the first blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/the first blog/">我的第一份博客</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/25/the first blog/" class="archive-article-date">
-  	<time datetime="2018-02-25T09:26:07.690Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  这是我第一次写博客，有点兴奋，也有点高兴。因为博客平台是我自己搭建的，很有成就感。<br>  很久以前我就想自己搭建一个属于自己的博客平台，但因为各种原因，总是没有成功。现在，我终于完成了。<br>  搭建博客平台，当然是为了写博客，记录自己的技术进步和生活的点点滴滴。<br>  <img src="/assets/img/1.jpg" alt="不凡的人生来自每日平凡的进步"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日志</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/25/the first blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于可视化的展望" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/25/关于可视化的展望/">关于可视化的展望</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/25/关于可视化的展望/" class="archive-article-date">
-  	<time datetime="2018-02-25T07:27:46.566Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天打开Android Studio准备编写一个小程序，看到xml中的ConstraintLayout，平时都忽略而过，不求甚解。<br>但今天程序员的职业精神让我认真了一番，仔细查看这个类的具体作用。<br>突然间，发现当前软件的发展已经愈来愈可视化了。<br>说不定将来不止UI可以进行可视化编程，甚至后台逻辑，数据库编写都会可视化。<br><img src="/assets/img/2.jpg" alt="可视化"><br>
-        
-          <a class="article-more-a" href="/2018/02/25/关于可视化的展望/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/25/关于可视化的展望/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -866,8 +471,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
